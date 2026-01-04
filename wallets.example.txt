@@ -1,0 +1,8 @@
+# Add your wallet addresses here (one per line)
+
+# Ethereum
+0x12xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Solana
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+

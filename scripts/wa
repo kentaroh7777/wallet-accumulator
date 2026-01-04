@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Move to project root
+cd "$(dirname "$0")/.."
+
+NEEDS_BUILD=false
+
+if [ ! -f "dist/index.js" ]; then
+    NEEDS_BUILD=true
+else
+    # Check if any .ts file in src is newer than dist/index.js
+    # Ensure find works on Mac (stat formatting might differ, so using -newer)
+    if [ -n "$(find src -name "*.ts" -newer dist/index.js 2>/dev/null)" ]; then
+        NEEDS_BUILD=true
+    fi
+fi
+
+if [ "$NEEDS_BUILD" = true ]; then
+    echo "ソースコードが変更されたためビルドを実行します..."
+    npm run build
+fi
+
+# Run
+node dist/index.js "$@"
